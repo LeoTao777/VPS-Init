@@ -46,4 +46,5 @@ load_env() {
     set -a
     source "$env_file"
     set +a
+    success "Load env Success"
 }

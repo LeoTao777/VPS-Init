@@ -10,6 +10,7 @@ main() {
     print_banner
     require_root
     check_os
+    load_env "${ROOT_DIR}/config/.env"
 }
 
 main "$@"
