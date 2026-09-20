@@ -48,3 +48,15 @@ load_env() {
     set +a
     success "Load env Success"
 }
+system_init() {
+    step "System initialization"
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update
+    apt-get install -y ca-certificates curl wget gnupg git jq unzip tar socat openssl cron
+    success "Base packages installed"
+}
+create_server_dirs() {
+    step "Creating directories"
+    mkdir -p "${INSTALL_DIR}"/{nginx/{conf.d,ssl,www,logs},komari/data,backup,scripts}
+    success "Created ${INSTALL_DIR}"
+}

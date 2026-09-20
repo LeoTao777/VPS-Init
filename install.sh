@@ -11,6 +11,10 @@ main() {
     require_root
     check_os
     load_env "${ROOT_DIR}/config/.env"
+
+    system_init
+    install_docker
+    create_server_dirs
 }
 
 main "$@"
