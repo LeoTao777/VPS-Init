@@ -23,7 +23,7 @@ else
     mkdir -p "${KOMARI_DATA}"
     docker run -d \
       -p "${KOMARI_PORT}:${KOMARI_PORT}" \
-      -v "$(pwd)/${KOMARI_DATA}:/app/data" \
+      -v "${KOMARI_DATA}:/app/data" \
       --name "${KOMARI_CONTAINER}" \
       --network "${DOCKER_NETWORK}" \
       --restart unless-stopped \
