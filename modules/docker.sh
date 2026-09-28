@@ -17,3 +17,13 @@ install_docker() {
     }
     success "Docker Compose available"
 }
+create_docker_network() {
+    step "Creating Docker network"
+
+    if docker network inspect "${DOCKER_NETWORK}" >/dev/null 2>&1; then
+        success "Network exists: ${DOCKER_NETWORK}"
+    else
+        docker network create "${DOCKER_NETWORK}"
+        success "Network created: ${DOCKER_NETWORK}"
+    fi
+}
